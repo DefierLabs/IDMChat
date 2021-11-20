@@ -18,7 +18,98 @@ export default function ChatsList() {
   const classes = GlobalStyles();
   return (
     <div className="ChatsList">
-      <List className={classes.cardWithBGList}>
+      <Paper style={{maxHeight: 900, overflow: 'auto'}}>
+      <List className={classes.cardWithBGList} >
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
+        <ChatsListItem />
+        <Divider variant="inset" component="li" />
         <ChatsListItem />
         <Divider variant="inset" component="li" />
         <ChatsListItem />
@@ -26,6 +117,7 @@ export default function ChatsList() {
         <ChatsListItem />
         <Divider variant="inset" component="li" />
       </List>
+      </Paper>
     </div>
   );
 }
