@@ -12,109 +12,19 @@ import Typography from '@material-ui/core/Typography';
 
 import GlobalStyles from '../GlobalStyles';
 
-import ChatsListItem from './ChatsListItem';
+import ChatMessage from './ChatMessage';
 
 export default function Chat() {
   const classes = GlobalStyles();
   return (
     <div className="ChatLog">
-      <Paper style={{maxHeight: 830, overflow: 'auto'}}>
+      <Paper style={{height: 830, overflow: 'auto'}}>
       <List className={classes.cardWithBGList} >
-        <ChatsListItem />
+        <ChatMessage />
         <Divider variant="inset" component="li" />
-        <ChatsListItem />
+        <ChatMessage />
         <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
-        <Divider variant="inset" component="li" />
-        <ChatsListItem />
+        <ChatMessage />
         <Divider variant="inset" component="li" />
       </List>
       </Paper>
