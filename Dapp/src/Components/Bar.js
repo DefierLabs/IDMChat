@@ -9,6 +9,7 @@ import GlobalStyles from './../GlobalStyles';
 export default function Bar() {
   const classes = GlobalStyles();
   var idmPrice = "Coming Soon™"
+  var chain = "xDai"
   return (
     <div className="appBar">
       <AppBar position="static" className={clsx(classes.appBar)}>
@@ -17,8 +18,12 @@ export default function Bar() {
           <div className={classes.toolbarCenter}>
             <Button color="inherit" href="#" >Chat</Button>
           </div>
+          <div className={classes.toolbarCenter}>
+            <Button color="inherit" href="#About" >About</Button>
+          </div>
           <div className={classes.toolbarButtons}>
-            <Button color="inherit" href="#" >$IDM 🗠 {idmPrice}</Button>
+            <Button color="inherit" href="#" >$IDM💬 {idmPrice}</Button>
+            <Button color="inherit" href="#" >🔗 {chain}</Button>
             <Button color="inherit">Connect Wallet</Button>
           </div>
         </Toolbar>
