@@ -17,8 +17,8 @@ import ChatsListItem from './ChatsListItem';
 export default function Chat() {
   const classes = GlobalStyles();
   return (
-    <div className="ChatsList">
-      <Paper style={{maxHeight: 900, overflow: 'auto'}}>
+    <div className="ChatLog">
+      <Paper style={{maxHeight: 830, overflow: 'auto'}}>
       <List className={classes.cardWithBGList} >
         <ChatsListItem />
         <Divider variant="inset" component="li" />
