@@ -107,6 +107,10 @@ const GlobalStyles = makeStyles((theme) => ({
           background: "linear-gradient(90deg, " + theme.palette.primary.dark + " 0%, " + theme.palette.secondary.light + " 90%)",
           color: "white"
         },
+        cardWithBGList: {
+          background: "white",
+          color: "black"
+        },
         card: {
           maxWidth: 10000,
         },
