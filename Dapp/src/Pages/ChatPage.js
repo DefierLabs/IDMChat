@@ -1,8 +1,7 @@
 
 import React from 'react';
-import Socials from '../Components/Socials.js';
 import ChatsList from '../Components/ChatsList.js';
-import DCAForm from '../Components/DCAForm.js';
+import Grid from '@material-ui/core/Grid';
 
 import GlobalStyles from '../GlobalStyles';
 
@@ -10,7 +9,11 @@ export default function ChatPage() {
   const classes = GlobalStyles();
   return (
     <div className="Chat">
-      <ChatsList/>
+      <Grid container spacing={1} >
+        <Grid item xs={4} sm={4} md={4} xl={4}>
+          <ChatsList />
+        </Grid>
+      </Grid>
     </div>
   );
 }
