@@ -8,7 +8,7 @@ export async function processConversationData(address) {
     if (address != "0x00") {
         var conversation = { nConversation: 0, mapping: {}, }
         //var address = "0x456BC3aE1381eB994A2df1d9F7F7DA3e4cE879b0" // "0x5dc3603C9D42Ff184153a8a9094a73d461663214" // 
-        var chains = [137] //,[1 56, 42161, 250, 43114]
+        var chains = [137] //, 56, 42161, 250, 43114]
 
         for (var xx = 0; xx < chains.length; xx++) {
             var chain = chains[xx]

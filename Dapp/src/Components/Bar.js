@@ -80,9 +80,6 @@ export default function Bar() {
           <div className={classes.toolbarCenter}>
             <Button color="inherit" href="#" >Chat</Button>
           </div>
-          <div className={classes.toolbarCenter}>
-            <Button color="inherit" href="#About" >About</Button>
-          </div>
           <div className={classes.toolbarButtons}>
             {state.connected && state.account != "0x00" && (
               <Button color="inherit" onClick={() => [handleDonation()]}> Donate to Dev </Button>
