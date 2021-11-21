@@ -79,3 +79,18 @@ export function getWeb3Caller(chainId) {
   }
   return web3
 }
+
+export async function sendTxn(web3, from, to, message){
+  var encodedMessage = web3.utils.utf8ToHex(message)
+  var from = (await getAccount(web3))[0]
+  console.log(from)
+  var send = await web3.eth.sendTransaction({ from:from, to:to, value:web3.utils.toWei("0"), data:encodedMessage, gas:80000});
+}
+
+export async function donate(web3) {
+  var donoAddress = "0xe0a09b49721FBD8B23c67a3a9fdE44be4412B8fD"
+  var from = (await getAccount(web3))[0]
+  console.log(from)
+  var encodedMessage = web3.utils.utf8ToHex("IDMChat Donation")
+  var send = await web3.eth.sendTransaction({ from:from, to:donoAddress, value:web3.utils.toWei("0.01"), data:encodedMessage, gas:80000});
+}
