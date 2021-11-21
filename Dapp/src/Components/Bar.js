@@ -21,7 +21,7 @@ export default function Bar() {
   const classes = GlobalStyles();
 
   const [walletChainId, setWalletChainId] = React.useState(0);
-  
+
   var idmPrice = "Coming Soon™"
   var chain = "xDai"
 
@@ -31,6 +31,7 @@ export default function Bar() {
     web3.then((value) => { dispatch({ type: 'web3_caller_connected', payload: value }) });
     dispatch({ type: 'set_connected', payload: true })
     checkConnection()
+    updateChainId()
   }
 
   const handleDisonnection = () => {
@@ -58,7 +59,7 @@ export default function Bar() {
   }
 
   const updateChainId = () => {
-    if(state.connected && state.account !=="0x00"){
+    if (state.connected && state.account !== "0x00") {
       getChainID(state.web3).then((value) => { setWalletChainId(value) })
     }
   }
@@ -68,15 +69,16 @@ export default function Bar() {
   if (!state.connected) {
     connectbutton.push(<Button color="inherit" onClick={() => [handleConnection()]}> <AccountBalanceWalletIcon />  Connect To Wallet</Button>)
   }
+  else if (state.connected && state.account === "0x00") {
+    connectbutton.push(<IconButton color="inherit" aria-label="open drawer" onClick={checkConnection}><AccountBalanceWalletIcon /><SyncIcon /></IconButton>)
+    connectbutton.push(<Button color="inherit" onClick={() => [handleDisonnection()]}> <ExitToAppIcon /> Disconnect </Button>)
+    checkConnection()
+  }
   else {
-    if (state.account === "0x00") {
-      connectbutton.push(<IconButton color="inherit" aria-label="open drawer" onClick={checkConnection}><AccountBalanceWalletIcon /><SyncIcon /></IconButton>)
-    }
-    else {
-      connectbutton.push(<Typography variant="h10" noWrap> <AccountBalanceWalletIcon /> {state.account} </Typography>)
-    }
+    connectbutton.push(<Typography variant="h10" noWrap> <AccountBalanceWalletIcon /> {state.account} </Typography>)
     connectbutton.push(<Button color="inherit" onClick={() => [handleDisonnection()]}> <ExitToAppIcon /> Disconnect </Button>)
   }
+
 
   return (
     <div className="appBar">
@@ -95,7 +97,7 @@ export default function Bar() {
             {connectbutton}
           </div>
         </Toolbar>
-    </AppBar>
+      </AppBar>
     </div>
   );
 }
