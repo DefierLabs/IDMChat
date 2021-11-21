@@ -14,7 +14,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SyncIcon from '@material-ui/icons/Sync';
 
-import { connect, disconnect, getAccount, getWeb3Caller, getChainID } from "../Utils/Web3Handler"
+import { connect, disconnect, getAccount, getWeb3Caller, getChainID, donate } from "../Utils/Web3Handler"
 
 export default function Bar() {
   const [state, dispatch] = useContext(Context);
@@ -51,6 +51,11 @@ export default function Bar() {
     }
   }
 
+  const handleDonation = () => {
+    donate(state.web3)
+  }
+
+
   var connectbutton = []
 
   if (!state.connected) {
@@ -79,8 +84,10 @@ export default function Bar() {
             <Button color="inherit" href="#About" >About</Button>
           </div>
           <div className={classes.toolbarButtons}>
-            <Button color="inherit" href="#" >Donate to Dev</Button>
-            <Button color="inherit" href="#" >🔗 {walletChainId}</Button>
+            {state.connected && state.account != "0x00" && (
+              <Button color="inherit" onClick={() => [handleDonation()]}> Donate to Dev </Button>
+            )}
+            <Button color="inherit" >🔗 {walletChainId}</Button>
             {connectbutton}
           </div>
         </Toolbar>
