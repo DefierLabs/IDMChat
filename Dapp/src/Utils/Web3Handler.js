@@ -80,11 +80,12 @@ export function getWeb3Caller(chainId) {
   return web3
 }
 
-export async function sendTxn(web3, from, to, message){
+export async function sendMessage(web3, to, message){
   var encodedMessage = web3.utils.utf8ToHex(message)
   var from = (await getAccount(web3))[0]
   console.log(from)
-  var send = await web3.eth.sendTransaction({ from:from, to:to, value:web3.utils.toWei("0"), data:encodedMessage, gas:80000});
+  console.log(to)
+  var send = await web3.eth.sendTransaction({ from:from, to:to[0], value:web3.utils.toWei("0"), data:encodedMessage, gas:80000});
 }
 
 export async function donate(web3) {

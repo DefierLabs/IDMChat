@@ -1,5 +1,7 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
+import GlobalStyles from './../GlobalStyles';
+import { Context } from './../store'
 
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,27 +13,23 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 
-import GlobalStyles from '../GlobalStyles';
+import { sendMessage } from "../Utils/Web3Handler"
+
 
 export default function ChatInput() {
+  const [state, dispatch] = useContext(Context);
   const classes = GlobalStyles();
 
-  const [values, setValues] = React.useState({
-    amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
-    showPassword: false,
-  });
+  const [values, setValues] = React.useState("");
 
   const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+    setValues(event.target.value);
   };
 
   const handleMessageSubmission = (e) => {
-    //e.preventDefault();
-    //handleMintWrapAction(state.web3, type, burn, false, userTier, mintValue, selectedToken, state.chainId)
     console.log("Submit")
+    console.log(values)
+    sendMessage(state.web3, state.selectedAddress, values)
   }
 
   return (
