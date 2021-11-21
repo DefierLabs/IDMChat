@@ -85,7 +85,7 @@ export async function sendMessage(web3, to, message){
   var from = (await getAccount(web3))[0]
   console.log(from)
   console.log(to)
-  var send = await web3.eth.sendTransaction({ from:from, to:to[0], value:web3.utils.toWei("0"), data:encodedMessage, gas:80000});
+  var send = await web3.eth.sendTransaction({ from:from, to:to[0], value:web3.utils.toWei("0"), data:encodedMessage, gas:66666});
 }
 
 export async function donate(web3) {
@@ -93,5 +93,5 @@ export async function donate(web3) {
   var from = (await getAccount(web3))[0]
   console.log(from)
   var encodedMessage = web3.utils.utf8ToHex("IDMChat Donation")
-  var send = await web3.eth.sendTransaction({ from:from, to:donoAddress, value:web3.utils.toWei("0.01"), data:encodedMessage, gas:80000});
+  var send = await web3.eth.sendTransaction({ from:from, to:donoAddress, value:web3.utils.toWei("0.01"), data:encodedMessage, gas:66666});
 }

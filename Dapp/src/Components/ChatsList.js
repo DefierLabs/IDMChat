@@ -51,9 +51,19 @@ export default function ChatsList() {
     chatList.push(<><Divider variant="inset" component="li" /></>)
   }
 
+  if (chatList.length == 0) {
+    chatList.push(<Typography
+      component="span"
+      variant="body2"
+      className={classes.inline}
+      color="secondary"
+    > {"No Conversation History"}
+    </Typography>)
+  }
+
   return (
     <div className="ChatsList">
-      <Paper style={{ height: 900, overflow: 'auto' }}>
+      <Paper style={{ height: 830, overflow: 'auto' }}>
         <List className={classes.cardWithBGList} >
           {chatList}
         </List>

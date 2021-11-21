@@ -87,7 +87,6 @@ export default function Bar() {
             {state.connected && state.account != "0x00" && (
               <Button color="inherit" onClick={() => [handleDonation()]}> Donate to Dev </Button>
             )}
-            <Button color="inherit" >🔗 {walletChainId}</Button>
             {connectbutton}
           </div>
         </Toolbar>

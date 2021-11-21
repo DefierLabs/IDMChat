@@ -24,28 +24,41 @@ export default function Chat() {
 
     console.log(state.conversation)
     var convo = state.conversation[state.conversation['mapping'][state.selectedAddress]]
+    try {
+      for (var i = 0; i < convo.length; i++) {
+        console.log(convo)
 
-    for (var i = 0; i < convo.length; i++) {
-      console.log(convo)
+        chatItems.push(<ChatMessage
+          address={convo[i]['counterParty']}
+          message={convo[i]['message']}
+          date={convo[i]['timestamp']}
+          time={convo[i]['timestamp']}
+          showDate={false}
+          isSender={convo[i]['isSender']}
+          isGroupChat={false}
+          txnLink={convo[i]['tx']}
+        />)
+        chatItems.push(<Divider variant="inset" component="li" />)
+      }
+    }
+    catch {
 
-      chatItems.push(<ChatMessage
-        address={convo[i]['counterParty']}
-        message={convo[i]['message']}
-        date={convo[i]['timestamp']}
-        time={convo[i]['timestamp']}
-        showDate={false}
-        isSender={convo[i]['isSender']}
-        isGroupChat={false}
-        txnLink={convo[i]['tx']}
-      />)
-      chatItems.push(<Divider variant="inset" component="li" />)
     }
   }
 
+  if (chatItems.length == 0) {
+    chatItems.push(<Typography
+      component="span"
+      variant="body2"
+      className={classes.inline}
+      color="secondary"
+    > {"No Conversation History"}
+    </Typography>)
+  }
 
   return (
     <div className="ChatLog">
-      <Paper style={{ height: 830, overflow: 'auto' }}>
+      <Paper style={{ height: 750, overflow: 'auto' }}>
         <List className={classes.cardWithBGList} >
           {chatItems}
         </List>

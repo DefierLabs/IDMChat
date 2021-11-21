@@ -13,49 +13,22 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+
 import { Identicon } from 'ethereum-react-components';
 
-
-export default function ChatsListItem(props) {
+export default function ChatHeader(props) {
   const [state, dispatch] = useContext(Context);
   const classes = GlobalStyles();
 
-  var dateTime = props.time
-  if (props.showDate) {
-    dateTime = props.date;
-  }
-
-  const handleClick = (e) => {
-    dispatch({ type: 'selectedAddress', payload: props.address });
-    dispatch({ type: 'selectedChain', payload: props.chainId });
-    console.log(state.selectedChain)
-    console.log(state.selectedAddress)
-  }
-
-  var ident = []
-  try {
-    ident.push(<Identicon address={props.address[0]} />)
-  }
-  catch{
-
-  }
-
   return (
     <div className="ChatsListItem">
-      <ListItem button component={Button} onClick={() => [handleClick()]} alignItems="flex-start">
+      <ListItem className={classes.cardWithBGList}  alignItems="flex-start">
         <ListItemAvatar>
-          {ident}
+          <Identicon address={state.selectedAddress[0]} />
         </ListItemAvatar>
         <ListItemText
-          primary={props.address}
+          primary={state.selectedAddress}
         />
-        <Typography
-          component="span"
-          variant="body2"
-          className={classes.inline}
-          color="secondary"
-        > {dateTime}
-        </Typography>
       </ListItem>
     </div>
   );
