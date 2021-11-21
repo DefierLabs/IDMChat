@@ -12,7 +12,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
-
 import ChatMessage from './ChatMessage';
 
 export default function Chat() {
@@ -24,9 +23,6 @@ export default function Chat() {
   if (state.selectedChain != -1 && state.selectedAddress != "0x00") {
 
     console.log(state.conversation)
-
-
-
     var convo = state.conversation[state.conversation['mapping'][state.selectedAddress]]
 
     for (var i = 0; i < convo.length; i++) {
