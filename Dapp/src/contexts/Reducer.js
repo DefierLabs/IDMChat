@@ -37,6 +37,16 @@ const Reducer = (state, action) => {
                 ...state,
                 conversation: action.payload
             };
+        case 'selectedAddress':
+            return {
+                ...state,
+                selectedAddress: action.payload
+            };
+        case 'selectedChain':
+            return {
+                ...state,
+                selectedChain: action.payload
+            };
         default:
             return state;
     }
