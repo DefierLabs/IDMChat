@@ -23,7 +23,7 @@ export default function ChatMessage() {
   var showDate = false 
   var isSender = true
   var isGroupChat = false
-
+  var txnLink = "https://defier.capital"
   var dateTime = time
   if(showDate){
     dateTime = date;
@@ -41,10 +41,10 @@ export default function ChatMessage() {
   return (
     <div className="ChatMessage">
 
-        <Paper style={{background:backgroundColor, color:textColor}}>
+        <Paper style={{background:backgroundColor, color:textColor}} className={classes.cardWithoutBg}>
         {isGroupChat && (<Typography variant="h6" className={classes.title}>{address}</Typography>)}
         <Typography variant="h6" className={classes.title}>{message}</Typography>
-        <Typography variant="h7" align="right" className={classes.title}>{dateTime}</Typography>
+        <Typography variant="h7" align="right" className={classes.title}>{dateTime} <Link href={txnLink}>@ TXN </Link></Typography>
         </Paper>
 
     </div>
