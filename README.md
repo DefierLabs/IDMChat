@@ -1,7 +1,9 @@
 # IDMChat
 Made in ~1 day for Web3Jam
 
-[https://idmchat.xyz](Dapp Here)
+## [Dapp](https://idmchat.xyz)
+## [Web3Jam Page](https://showcase.ethglobal.com/web3jam/idmchat)
+## [Video](https://www.youtube.com/watch?v=4MBBrphTUWs)
 
 ## Description
 A Chat app allowing users to easily send, cheap censorship resistant messages via Input Data Messaging. Allowing users to anonymously and openly interact with other blockchain users without worrying about data being stored on a server as everything is on chain.
