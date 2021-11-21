@@ -38,7 +38,7 @@ export default function ChatsListItem(props) {
           <Avatar src={props.imageAddress} />
         </ListItemAvatar>
         <ListItemText
-          primary={props.address + " on " + props.chain}
+          primary={props.address}
           secondary={
             <React.Fragment>
               {props.latestMessage}
