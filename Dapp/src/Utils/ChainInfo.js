@@ -1,5 +1,5 @@
 export default
-{   "rpcs" : 8,
+{   "length" : 7,
     0 :{
         "chain":"Ethereum",
         "chainId":"1",
@@ -20,25 +20,25 @@ export default
     },
     3 :{
         "chain":"Arbitrum",
-        "chainId":"1",
+        "chainId":"42161",
         "RPC": "https://speedy-nodes-nyc.moralis.io/dba847ca0bbe4c78ca7fd67e/arbitrum/mainnet",
         "Image": "https://assets.trustwalletapp.com/blockchains/arbitrum/info/logo.png"
     },
     4 :{
         "chain":"Avalanche",
-        "chainId":"1",
+        "chainId":"43114",
         "RPC": "https://speedy-nodes-nyc.moralis.io/dba847ca0bbe4c78ca7fd67e/avalanche/mainnet",
         "Image": "https://archived.moe/files/biz/thumb/1608/75/1608751041096s.jpg"
     },
     5 :{
         "chain":"Fantom",
-        "chainId":"1",
+        "chainId":"250",
         "RPC": "https://speedy-nodes-nyc.moralis.io/dba847ca0bbe4c78ca7fd67e/fantom/mainnet",
         "Image": "https://assets.trustwalletapp.com/blockchains/smartchain/info/logo.png"
     },
     6 :{
         "chain":"xDai",
-        "chainId":"1",
+        "chainId":"100",
         "RPC": "https://xdai.poanetwork.dev",
         "Image": "https://s2.coinmarketcap.com/static/img/coins/64x64/5601.png"
     },
