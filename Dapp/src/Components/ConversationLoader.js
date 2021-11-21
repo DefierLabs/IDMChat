@@ -5,9 +5,10 @@ import { processConversationData } from "../Utils/GetChatData.js";
 
 export default function ConversationLoader() {
   const [state, dispatch] = useContext(Context);
-  const [values, setValues] = React.useState(false)
-  if(values == false){
-    processConversationData().then((value) => { dispatch({ type: 'conversation', payload: value }); setValues(true);});
+  const [hasData, setHasData] = React.useState(false)
+  const [lastAccount, setLastAccount] = React.useState("0x00")
+  if(state.account != "0x00" && hasData == false || lastAccount != state.account){
+    processConversationData(state.account).then((value) => { dispatch({ type: 'conversation', payload: value }); setLastAccount(state.account); setHasData(true);});
   }
   else{
     console.log(state.conversation)
