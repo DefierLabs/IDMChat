@@ -43,7 +43,7 @@ export async function getCovalentData() {
 
     var web3 = new Web3(new Web3.providers.HttpProvider('https://speedy-nodes-nyc.moralis.io/dba847ca0bbe4c78ca7fd67e/polygon/mainnet'));
 
-    var conversation = {}
+    var allMessageData = []
 
     for (var i = 0; i < filteredData.length; i++) {
 
@@ -51,18 +51,63 @@ export async function getCovalentData() {
         try {
             var asText = web3.utils.hexToUtf8(receipt['input'])
             if (asText.length > 0) {
-                console.log(filteredData[i]['tx_hash'])
-                console.log(asText)
+                //console.log(filteredData[i]['tx_hash'])
+                //console.log(asText)
+                var blockNumber = receipt['blockNumber']
+                var timestamp = (await web3.eth.getBlock(blockNumber))['timestamp']
+                //console.log(timestamp)
+                var messageData = {sender:receipt['from'], receiver:receipt['to'], message:asText,  timestamp:timestamp, tx:filteredData[i]['tx_hash'], chain:chain}
+                allMessageData.push(messageData)
+                //console.log(messageData)
             }
         }
         catch {
             console.log("Error")
         }
     }
+
+    //console.log(allMessageData)
+
+    var conversation = {nConversation:0, mapping:{},}
+
+    for(var i = 0; i<allMessageData.length; i++){
+        var messageData = allMessageData[i]
+        var newMessageData = {  
+                                isSelfSend: false, 
+                                isSender:false, 
+                                message:messageData['message'], 
+                                chain:messageData['chain'],
+                                timestamp:messageData['timestamp'],
+                                counterParty: address,
+                                tx: messageData['tx']
+                            }
+
+        if(messageData['from'] == messageData['to']){
+            newMessageData['isSelfSend'] = true
+
+        } else if (messageData['from'] == address) {
+            newMessageData['isSender'] = true
+            newMessageData['counterParty'] = messageData['to']
+        }
+        else{
+            newMessageData['isSender'] = false
+            newMessageData['counterParty'] = messageData['from']
+        }
+        
+        if (typeof conversation['mapping'][newMessageData['counterParty']] == 'undefined'){
+            conversation['mapping'][newMessageData['counterParty']] = conversation['nConversation']
+            conversation[conversation['nConversation']] = []
+            conversation['nConversation'] = conversation['nConversation'] + 1
+        }
+        
+        conversation[conversation['mapping'][newMessageData['counterParty']]].push(newMessageData)
+        console.log(conversation)
+
+        window.localStorage.setItem("conversation", JSON.stringify(conversation));
+        var conversation1 = JSON.parse(window.localStorage.getItem("conversation"));
+        alert(conversation1);
+    }
 }
 
-function processData(transaction) {
-
-}
 
 
