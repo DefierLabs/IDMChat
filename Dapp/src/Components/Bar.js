@@ -22,9 +22,6 @@ export default function Bar() {
 
   const [walletChainId, setWalletChainId] = React.useState(0);
 
-  var idmPrice = "Coming Soon™"
-  var chain = "xDai"
-
   const handleConnection = () => {
     var web3 = connect()
     web3.then((value) => { dispatch({ type: 'web3_connected', payload: value }) });
@@ -46,16 +43,6 @@ export default function Bar() {
         account.then((value) => { dispatch({ type: 'set_account', payload: value }) });
       }
     }
-  }
-
-  const connectCaller = () => {
-    if (state.web3_caller === null) {
-      dispatch({ type: 'web3_caller_connected', payload: getWeb3Caller(state.chainId) })
-    }
-  }
-
-  const updateCaller = () => {
-    dispatch({ type: 'web3_caller_connected', payload: getWeb3Caller(state.chainId) })
   }
 
   const updateChainId = () => {
@@ -93,7 +80,7 @@ export default function Bar() {
           </div>
           <div className={classes.toolbarButtons}>
             <Button color="inherit" href="#" >Donate to Dev</Button>
-            <Button color="inherit" href="#" >🔗 {chain}</Button>
+            <Button color="inherit" href="#" >🔗 {walletChainId}</Button>
             {connectbutton}
           </div>
         </Toolbar>
