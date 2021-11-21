@@ -7,10 +7,13 @@ export default function ConversationLoader() {
   const [state, dispatch] = useContext(Context);
   const [values, setValues] = React.useState(false)
   if(values == false){
-    processConversationData().then((value) => { dispatch({ type: 'conversation', payload: value }); setValues(true)});
+    processConversationData().then((value) => { dispatch({ type: 'conversation', payload: value }); setValues(true);});
+  }
+  else{
+    console.log(state.conversation)
   }
 
-  console.log(state.conversation)
+
   
   const classes = GlobalStyles();
   
