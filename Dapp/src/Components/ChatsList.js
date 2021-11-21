@@ -57,7 +57,7 @@ export default function ChatsList() {
       variant="body2"
       className={classes.inline}
       color="secondary"
-    > {"No Conversation History"}
+    > {"No Conversation History OR History Loading..."}
     </Typography>)
   }
 

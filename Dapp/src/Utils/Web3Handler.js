@@ -13,7 +13,7 @@ const providerOptions = {
   walletconnect: {
     package: WalletConnectProvider,
     options: {
-      infuraId: "9af22c382b3142389625451f5193fc76"
+      infuraId: ""
     }
   }
 };
@@ -67,17 +67,6 @@ export function getWeb3() {
 export async function getChainID(_web3){
   var chainId = await _web3.eth.getChainId()
   return chainId
-}
-
-export function getWeb3Caller(chainId) {
-  var web3;
-  if(chainId === 1){
-    web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/9af22c382b3142389625451f5193fc76'));
-  }
-  if(chainId === 4){
-    web3 = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/9af22c382b3142389625451f5193fc76'));
-  }
-  return web3
 }
 
 export async function sendMessage(web3, to, message){
