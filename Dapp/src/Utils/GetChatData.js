@@ -1,9 +1,8 @@
 
 import ChainInfo from "./ChainInfo.js";
 import axios from 'axios';
-import Web3Modal from "web3modal";
 
-export async function getCovalentData() {
+export async function processConversationData() {
     var Web3 = require('web3');
 
     var address = "0x456BC3aE1381eB994A2df1d9F7F7DA3e4cE879b0"
@@ -66,8 +65,6 @@ export async function getCovalentData() {
         }
     }
 
-    //console.log(allMessageData)
-
     var conversation = {nConversation:0, mapping:{},}
 
     for(var i = 0; i<allMessageData.length; i++){
@@ -101,11 +98,8 @@ export async function getCovalentData() {
         }
         
         conversation[conversation['mapping'][newMessageData['counterParty']]].push(newMessageData)
-        console.log(conversation)
-
+        
         window.localStorage.setItem("conversation", JSON.stringify(conversation));
-        var conversation1 = JSON.parse(window.localStorage.getItem("conversation"));
-        alert(conversation1);
     }
 }
 
