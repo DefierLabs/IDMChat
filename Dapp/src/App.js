@@ -3,6 +3,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
+import {getCovalentData} from "./Utils/GetChatData.js";
+
 import Bar from './Components/Bar.js';
 import DCAPage from './Pages/DCAPage.js';
 import ChatPage from './Pages/ChatPage.js';
@@ -25,6 +27,8 @@ const theme = createMuiTheme({
 });
 
 function App() {
+
+  getCovalentData()
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
