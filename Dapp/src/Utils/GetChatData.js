@@ -5,7 +5,7 @@ import axios from 'axios';
 export async function processConversationData() {
     var Web3 = require('web3');
 
-    var address = "0x456BC3aE1381eB994A2df1d9F7F7DA3e4cE879b0"
+    var address = "0x5dc3603C9D42Ff184153a8a9094a73d461663214" // "0x456BC3aE1381eB994A2df1d9F7F7DA3e4cE879b0"
     var chain = "137"
     var key = "ckey_618a26bdd9a8408c9cf0ec43379"
 

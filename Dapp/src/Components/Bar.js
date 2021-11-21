@@ -22,7 +22,7 @@ export default function Bar() {
             <Button color="inherit" href="#About" >About</Button>
           </div>
           <div className={classes.toolbarButtons}>
-            <Button color="inherit" href="#" >$IDM💬 {idmPrice}</Button>
+            <Button color="inherit" href="#" >Donate to Dev</Button>
             <Button color="inherit" href="#" >🔗 {chain}</Button>
             <Button color="inherit">Connect Wallet</Button>
           </div>
