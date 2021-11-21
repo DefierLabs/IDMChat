@@ -30,13 +30,14 @@ export default function ChatsList() {
     var chainName = ""
     for (var j = 0; j < ChainInfo['length']; j++) {
       if (ChainInfo[j]['chainId'] == Number(state.conversation[i][0]['chain']))
-        console.log(ChainInfo[j])
+        //console.log(ChainInfo[j])
         image = ChainInfo[j]['Image']
         chainName = ChainInfo[j]['chain']
     }
 
     chatList.push(<><ChatsListItem
       chain={chainName}
+      chainId = {Number(state.conversation[i][0]['chain'])}
       imageAddress={image}
       address={state.conversation[i][0]['counterParty']}
       latestMessage={state.conversation[i][0]['message']}

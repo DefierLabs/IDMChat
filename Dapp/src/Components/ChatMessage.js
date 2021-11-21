@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 
 import GlobalStyles from '../GlobalStyles';
 
-export default function ChatMessage() {
+export default function ChatMessage(props) {
   const classes = GlobalStyles();
 
   var address = "0x0000000000000000000000000000000000000000"
@@ -24,27 +24,26 @@ export default function ChatMessage() {
   var isSender = true
   var isGroupChat = false
   var txnLink = "https://defier.capital"
-  var dateTime = time
-  if(showDate){
-    dateTime = date;
+  var dateTime = props.time
+  if(props.showDate){
+    dateTime = props.date;
   }
 
   var backgroundColor = "grey"
   var textColor = "white"
 
-  if(isSender){
+  if(props.isSender){
     backgroundColor = "#4800FF"
     textColor = "white"
   }
-
 
   return (
     <div className="ChatMessage">
 
         <Paper style={{background:backgroundColor, color:textColor}} className={classes.cardWithoutBg}>
-        {isGroupChat && (<Typography variant="h6" className={classes.title}>{address}</Typography>)}
-        <Typography variant="h6" className={classes.title}>{message}</Typography>
-        <Typography variant="h7" align="right" className={classes.title}>{dateTime} <Link href={txnLink}>@ TXN </Link></Typography>
+        {props.isGroupChat && (<Typography variant="h6" className={classes.title}>{props.address}</Typography>)}
+        <Typography variant="h6" className={classes.title}>{props.message}</Typography>
+        <Typography variant="h7" align="right" className={classes.title}>{dateTime} <Link href={props.txnLink}>@ TXN </Link></Typography>
         </Paper>
 
     </div>
