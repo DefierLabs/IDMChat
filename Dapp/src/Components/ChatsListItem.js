@@ -13,33 +13,33 @@ import Typography from '@material-ui/core/Typography';
 
 import GlobalStyles from '../GlobalStyles';
 
-export default function ChatsListItem() {
+export default function ChatsListItem(props) {
   const classes = GlobalStyles();
   var chain = "xDai"
   var imageAddress = "https://s2.coinmarketcap.com/static/img/coins/200x200/5601.png"
   var address = "0x0000000000000000000000000000000000000000"
   var latestMessage = "them: We are all rekt"
-  var linkAddress = "p?address=" + address + "&chain=" + chain
+  var linkAddress = "p?address=" + props.address + "&chain=" + props.chain
   var date = "20/11/2021"
   var time = "20:20 UTC"
   var showDate = false 
 
-  var dateTime = time
-  if(showDate){
-    dateTime = date;
+  var dateTime = props.time
+  if(props.showDate){
+    dateTime = props.date;
   }
 
   return (
     <div className="ChatsListItem">
-      <ListItem button component={Link} to={linkAddress} alignItems="flex-start">
+      <ListItem button component={Link} to={props.linkAddress} alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar src={imageAddress} />
+          <Avatar src={props.imageAddress} />
         </ListItemAvatar>
         <ListItemText
-          primary={address + " on " + chain}
+          primary={props.address + " on " + props.chain}
           secondary={
             <React.Fragment>
-              {latestMessage}
+              {props.latestMessage}
             </React.Fragment>
           }
         />

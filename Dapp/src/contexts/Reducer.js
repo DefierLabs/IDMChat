@@ -35,7 +35,7 @@ const Reducer = (state, action) => {
         case 'conversation':
             return {
                 ...state,
-                connected: action.payload
+                conversation: action.payload
             };
         default:
             return state;

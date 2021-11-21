@@ -7,7 +7,7 @@ const initialState = {
     connected: false,
     web3: null,
     web3_caller: null,
-    conversation: {nConversation:0, mapping:{},},
+    conversation: {},
     chainId: 1,
     error: null,
 };

@@ -102,8 +102,9 @@ export async function processConversationData() {
         
         
     }
-    window.localStorage.setItem("conversation", JSON.stringify(conversation));
-    return JSON.stringify(conversation)
+    //window.localStorage.setItem("conversation", JSON.stringify(conversation));
+    //console.log(conversation)
+    return conversation
 }
 
 

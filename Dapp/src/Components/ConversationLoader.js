@@ -11,13 +11,11 @@ export default function ConversationLoader() {
   }
   else{
     console.log(state.conversation)
+    //console.log(JSON.parse(window.localStorage.getItem("conversation")))
   }
 
-
-  
   const classes = GlobalStyles();
   
-
   return (
     <div className="ConversationLoader">
 
