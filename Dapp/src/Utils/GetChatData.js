@@ -13,7 +13,7 @@ export async function getCovalentData() {
     var url = "https://api.covalenthq.com/v1/" + chain + "/address/" + address + "/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&no-logs=true&key=" + key
 
     console.log(url)
-    
+
     var response
     try {
         response = await axios.get(url);
@@ -25,8 +25,8 @@ export async function getCovalentData() {
     var data = response['data']['data']['items']
     var filteredData = []
 
-    for(var i=0; i<data.length; i++){
-        if(data[i]['gas_spent'] < 75000){
+    for (var i = 0; i < data.length; i++) {
+        if (data[i]['gas_spent'] < 66000) {
             filteredData.push(data[i])
         }
     }
@@ -36,28 +36,29 @@ export async function getCovalentData() {
     console.log("API DATA:", ChainInfo)
 
     var chains = []
-    for(var i=0; i<ChainInfo['length']; i++){
-      //activeVaults.push(<VaultItem data={VaultData[i]} />)
-      console.log(ChainInfo[i]['RPC'])
+    for (var i = 0; i < ChainInfo['length']; i++) {
+        //activeVaults.push(<VaultItem data={VaultData[i]} />)
+        console.log(ChainInfo[i]['RPC'])
     }
 
     var web3 = new Web3(new Web3.providers.HttpProvider('https://speedy-nodes-nyc.moralis.io/dba847ca0bbe4c78ca7fd67e/polygon/mainnet'));
 
     var conversation = {}
 
-    for(var i=0; i<filteredData.length; i++){
-        console.log(filteredData[i]['tx_hash'])
+    for (var i = 0; i < filteredData.length; i++) {
 
         var receipt = await web3.eth.getTransaction(filteredData[i]['tx_hash'])
-        console.log(web3.utils.hexToUtf8(receipt['input']))
+        try {
+            var asText = web3.utils.hexToUtf8(receipt['input'])
+            if (asText.length > 0) {
+                console.log(filteredData[i]['tx_hash'])
+                console.log(asText)
+            }
+        }
+        catch {
+            console.log("Error")
+        }
     }
-
-
-
-
-
-    
-
 }
 
 function processData(transaction) {
