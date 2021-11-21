@@ -1,5 +1,5 @@
 export default
-{   "length" : 7,
+{   "length" : 6,
     0 :{
         "chain":"Ethereum",
         "chainId":"1",
@@ -35,11 +35,5 @@ export default
         "chainId":"250",
         "RPC": "https://speedy-nodes-nyc.moralis.io/dba847ca0bbe4c78ca7fd67e/fantom/mainnet",
         "Image": "https://assets.trustwalletapp.com/blockchains/smartchain/info/logo.png"
-    },
-    6 :{
-        "chain":"xDai",
-        "chainId":"100",
-        "RPC": "https://xdai.poanetwork.dev",
-        "Image": "https://s2.coinmarketcap.com/static/img/coins/64x64/5601.png"
     },
 }
