@@ -29,7 +29,7 @@ export default function ChatsList() {
     var image = ""
     var chainName = ""
     for (var j = 0; j < ChainInfo['length']; j++) {
-      if (Number(ChainInfo[j]['chainId']) === Number(state.conversation[i][0]['chain']))
+      if (ChainInfo[j]['chainId'] == Number(state.conversation[i][0]['chain']))
         console.log(ChainInfo[j])
         image = ChainInfo[j]['Image']
         chainName = ChainInfo[j]['chain']

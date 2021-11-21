@@ -55,7 +55,7 @@ export async function processConversationData() {
                 var blockNumber = receipt['blockNumber']
                 var timestamp = (await web3.eth.getBlock(blockNumber))['timestamp']
                 //console.log(timestamp)
-                var messageData = {sender:receipt['from'], receiver:receipt['to'], message:asText,  timestamp:timestamp, tx:filteredData[i]['tx_hash'], chain:chain}
+                var messageData = {from:receipt['from'], to:receipt['to'], message:asText,  timestamp:timestamp, tx:filteredData[i]['tx_hash'], chain:chain}
                 allMessageData.push(messageData)
                 //console.log(messageData)
             }
@@ -79,7 +79,7 @@ export async function processConversationData() {
                                 tx: messageData['tx']
                             }
 
-        if(messageData['from'] == messageData['to']){
+        if(messageData['from'] === messageData['to']){
             newMessageData['isSelfSend'] = true
             newMessageData['isSender'] = true
 

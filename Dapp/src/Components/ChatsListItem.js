@@ -15,15 +15,7 @@ import GlobalStyles from '../GlobalStyles';
 
 export default function ChatsListItem(props) {
   const classes = GlobalStyles();
-  var chain = "xDai"
-  var imageAddress = "https://s2.coinmarketcap.com/static/img/coins/200x200/5601.png"
-  var address = "0x0000000000000000000000000000000000000000"
-  var latestMessage = "them: We are all rekt"
-  var linkAddress = "p?address=" + props.address + "&chain=" + props.chain
-  var date = "20/11/2021"
-  var time = "20:20 UTC"
-  var showDate = false 
-
+  
   var dateTime = props.time
   if(props.showDate){
     dateTime = props.date;
