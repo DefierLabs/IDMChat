@@ -81,6 +81,7 @@ export async function processConversationData() {
 
         if(messageData['from'] == messageData['to']){
             newMessageData['isSelfSend'] = true
+            newMessageData['isSender'] = true
 
         } else if (messageData['from'] == address) {
             newMessageData['isSender'] = true
@@ -99,8 +100,10 @@ export async function processConversationData() {
         
         conversation[conversation['mapping'][newMessageData['counterParty']]].push(newMessageData)
         
-        window.localStorage.setItem("conversation", JSON.stringify(conversation));
+        
     }
+
+    return conversation
 }
 
 
