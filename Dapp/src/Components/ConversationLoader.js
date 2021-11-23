@@ -27,18 +27,17 @@ export default function ConversationLoader() {
   const [reloading, setReloading] = React.useState(false)
   var chains = [1, 56, 137, 250, 42161, 43114]
 
-  if(lastAccount !== state.account){
-    dispatch({ type: 'conversation', payload: { nConversation: 0, mapping: {}, txs: {} , } })
-    setHasData([false, false, false, false, false, false]);
+  if(lastAccount != state.account){
+    dispatch({ type: 'set_reload', payload: false })
     setLastAccount(state.account);
     setReloading(false)
+    dispatch({ type: 'conversation', payload: { nConversation: 0, mapping: {}, txs: {} , } })
+    setHasData([false, false, false, false, false, false]);
   }
 
-  if( state.reload === true && reloading === false){
+  if( state.reload == true && reloading == false){
     setReloading(true)
-    console.log("reload")
-    dispatch({ type: 'set_reload', payload: false })
-    setLastAccount("0x00");
+    setHasData([false, false, false, false, false, false]);
   }
 
   if(state.account !=="0x00"){
