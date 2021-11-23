@@ -5,6 +5,14 @@ Made in ~1 day for Web3Jam
 ## [Web3Jam Page](https://showcase.ethglobal.com/web3jam/idmchat)
 ## [Video](https://www.youtube.com/watch?v=4MBBrphTUWs)
 
+## Contributing
+
+Feel free to contribute improvements to the UX, performance or anything else you think the dApp needs. I'll test and merge all good, working requests!
+
+## Donating
+
+Feel free to donate to 0xe0a09b49721FBD8B23c67a3a9fdE44be4412B8fD if you find this work helpful or want to support it's future development
+
 ## Description
 A Chat app allowing users to easily send, cheap censorship resistant messages via Input Data Messaging. Allowing users to anonymously and openly interact with other blockchain users without worrying about data being stored on a server as everything is on chain.
 
@@ -17,14 +25,6 @@ Covalent api was used to pull data from chain, which was filtered down to a set 
 All of the data handling happens on the fly, with no backend server functionality that the dapp uses, other than the rpc node that the users wallet provides, and the covalent api that is queried.
 
 I had intended to add a group chat feature, which would have utilised a smart contract factory and data that would point to 'participants' in the conversation. The intention would be for users to be able to send an idm to the smart contract, and the ui would react by creating a group chat chain and informing all the users of the group chat messages.
-
-## Contributing
-
-Feel free to contribute improvements to the UX, performance or anything else you think the dApp needs. I'll test and merge all good, working requests!
-
-## Donating
-
-Feel free to donate to 0xe0a09b49721FBD8B23c67a3a9fdE44be4412B8fD if you find this work helpful or want to support it's future development
 
 # Getting Started with Create React App
 
