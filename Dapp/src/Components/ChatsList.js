@@ -36,17 +36,12 @@ export default function ChatsList() {
   const [state, dispatch] = useContext(Context);
   const classes = GlobalStyles();
 
-  //console.log(JSON.parse(window.localStorage.getItem("conversation")))
-
-
-  console.log(state.conversation)
   var chatList = []
   for (var i = 0; i < state.conversation['nConversation']; i++) {
     var image = ""
     var chainName = ""
     for (var j = 0; j < ChainInfo['length']; j++) {
       if (ChainInfo[j]['chainId'] == Number(state.conversation[i][0]['chain']))
-        //console.log(ChainInfo[j])
         image = ChainInfo[j]['Image']
         chainName = ChainInfo[j]['chain']
     }

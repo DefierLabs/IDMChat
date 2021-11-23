@@ -25,11 +25,9 @@ export default function ConversationLoader() {
   const [hasData, setHasData] = React.useState(false)
   const [lastAccount, setLastAccount] = React.useState("0x00")
   if(state.account != "0x00" && hasData == false || lastAccount != state.account){
-    processConversationData(state.account).then((value) => { dispatch({ type: 'conversation', payload: value }); setLastAccount(state.account); setHasData(true);});
+    processConversationData(state.account, 137).then((value) => { dispatch({ type: 'conversation', payload: value }); setLastAccount(state.account); setHasData(true);});
   }
   else{
-    console.log(state.conversation)
-    //console.log(JSON.parse(window.localStorage.getItem("conversation")))
   }
 
   const classes = GlobalStyles();

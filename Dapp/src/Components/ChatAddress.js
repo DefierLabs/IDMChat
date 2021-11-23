@@ -44,7 +44,6 @@ export default function ChatAddress() {
 
   const handleMessageSubmission = (e) => {
     dispatch({ type: 'selectedAddress', payload: values });
-    console.log("Submit")
   }
 
   return (

@@ -37,13 +37,9 @@ export default function Chat() {
   var chatItems = []
 
   if (state.selectedChain != -1 && state.selectedAddress != "0x00") {
-
-    console.log(state.conversation)
     var convo = state.conversation[state.conversation['mapping'][state.selectedAddress]]
     try {
       for (var i = 0; i < convo.length; i++) {
-        console.log(convo)
-
         chatItems.push(<ChatMessage
           address={convo[i]['counterParty']}
           message={convo[i]['message']}
@@ -53,6 +49,7 @@ export default function Chat() {
           isSender={convo[i]['isSender']}
           isGroupChat={false}
           txnLink={convo[i]['tx']}
+          chain={convo[i]['chain']}
         />)
         chatItems.push(<Divider variant="inset" component="li" />)
       }

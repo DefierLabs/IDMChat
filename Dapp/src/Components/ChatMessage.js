@@ -32,14 +32,6 @@ import GlobalStyles from '../GlobalStyles';
 export default function ChatMessage(props) {
   const classes = GlobalStyles();
 
-  var address = "0x0000000000000000000000000000000000000000"
-  var message = "we are all rekt"
-  var date = "20/11/2021"
-  var time = "20:20 UTC"
-  var showDate = false 
-  var isSender = true
-  var isGroupChat = false
-  var txnLink = "https://defier.capital"
   var dateTime = props.time
   if(props.showDate){
     dateTime = props.date;
@@ -59,7 +51,7 @@ export default function ChatMessage(props) {
         <Paper style={{background:backgroundColor, color:textColor}} className={classes.cardWithoutBg}>
         {props.isGroupChat && (<Typography variant="h6" className={classes.title}>{props.address}</Typography>)}
         <Typography variant="h6" className={classes.title}>{props.message}</Typography>
-        <Typography variant="h7" align="right" className={classes.title}>{dateTime} <Link href={props.txnLink}>@ TXN </Link></Typography>
+        <Typography variant="h7" align="right" className={classes.title}> Time:{dateTime} Chain:{props.chain} TX: {props.txnLink}</Typography>
         </Paper>
 
     </div>

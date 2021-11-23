@@ -89,15 +89,22 @@ export async function getChainID(_web3){
 export async function sendMessage(web3, to, message){
   var encodedMessage = web3.utils.utf8ToHex(message)
   var from = (await getAccount(web3))[0]
-  console.log(from)
-  console.log(to)
-  var send = await web3.eth.sendTransaction({ from:from, to:to[0], value:web3.utils.toWei("0"), data:encodedMessage, gas:66666});
+  var receiver
+
+  try{
+    receiver = web3.utils.toChecksumAddress(to[0])
+  }
+  catch {
+    receiver = web3.utils.toChecksumAddress(to)
+  }
+  
+  console.log(receiver)
+  var send = await web3.eth.sendTransaction({ from:from, to:receiver, value:web3.utils.toWei("0"), data:encodedMessage, gas:66666});
 }
 
 export async function donate(web3) {
   var donoAddress = "0xe0a09b49721FBD8B23c67a3a9fdE44be4412B8fD"
   var from = (await getAccount(web3))[0]
-  console.log(from)
   var encodedMessage = web3.utils.utf8ToHex("IDMChat Donation")
   var send = await web3.eth.sendTransaction({ from:from, to:donoAddress, value:web3.utils.toWei("0.01"), data:encodedMessage, gas:66666});
 }

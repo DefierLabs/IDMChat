@@ -44,8 +44,6 @@ export default function ChatsListItem(props) {
   const handleClick = (e) => {
     dispatch({ type: 'selectedAddress', payload: props.address });
     dispatch({ type: 'selectedChain', payload: props.chainId });
-    console.log(state.selectedChain)
-    console.log(state.selectedAddress)
   }
 
   var ident = []
