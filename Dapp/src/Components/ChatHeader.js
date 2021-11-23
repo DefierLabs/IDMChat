@@ -35,12 +35,18 @@ import { Identicon } from 'ethereum-react-components';
 export default function ChatHeader(props) {
   const [state, dispatch] = useContext(Context);
   const classes = GlobalStyles();
+  var address = state.selectedAddress
+  if(address.length == 1 ){
+    address = state.selectedAddress[0]
+  }
 
   return (
     <div className="ChatsListItem">
       <ListItem className={classes.cardWithBGList}  alignItems="flex-start">
         <ListItemAvatar>
-          <Identicon address={state.selectedAddress[0]} />
+
+
+          <Identicon address={address} />
         </ListItemAvatar>
         <ListItemText
           primary={state.selectedAddress}

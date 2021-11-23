@@ -36,6 +36,11 @@ export default function ChatsListItem(props) {
   const [state, dispatch] = useContext(Context);
   const classes = GlobalStyles();
 
+  var address = props.address
+  if(address.length == 1 ){
+    address = props.address[0]
+  }
+
   var dateTime = props.time
   if (props.showDate) {
     dateTime = props.date;
@@ -48,7 +53,7 @@ export default function ChatsListItem(props) {
 
   var ident = []
   try {
-    ident.push(<Identicon address={props.address[0]} />)
+    ident.push(<Identicon address={address} />)
   }
   catch{
 
