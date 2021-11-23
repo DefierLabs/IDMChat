@@ -24,7 +24,7 @@ const initialState = {
     connected: false,
     web3: null,
     web3_caller: null,
-    conversation: {},
+    conversation: { nConversation: 0, mapping: {}, txs: {} },
     chainId: 1,
     error: null,
     selectedAddress:"0x00",

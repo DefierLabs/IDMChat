@@ -18,19 +18,17 @@
 import ChainInfo from "./ChainInfo.js";
 import axios from 'axios';
 
-export async function processConversationData(address, chain) {
+export async function processConversationData(address, chain, conversation) {
     var Web3 = require('web3');
 
     if (address != "0x00") {
-        var conversation = { nConversation: 0, mapping: {}, }
 
         var key = "ckey_618a26bdd9a8408c9cf0ec43379"
-
-        var url = "https://api.covalenthq.com/v1/" + chain + "/address/" + address + "/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&no-logs=true&key=" + key
+        var api_query = "https://api.covalenthq.com/v1/" + chain + "/address/" + address + "/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&no-logs=true&key=" + key
 
         var response
         try {
-            response = await axios.get(url);
+            response = await axios.get(api_query);
         } catch (axiosErr) {
         }
 
@@ -49,6 +47,8 @@ export async function processConversationData(address, chain) {
                 chainDetails = ChainInfo[i]
             }
         }
+
+        console.log(chainDetails['chain'])
 
         var web3 = new Web3(new Web3.providers.HttpProvider(chainDetails['RPC']));
 
@@ -100,16 +100,17 @@ export async function processConversationData(address, chain) {
                 conversation['nConversation'] = conversation['nConversation'] + 1
             }
 
-            conversation[conversation['mapping'][newMessageData['counterParty']]].push(newMessageData)
+            if (typeof conversation['txs'][newMessageData['tx']] == 'undefined'){
+                conversation['txs'][newMessageData['tx']] = true
+                conversation[conversation['mapping'][newMessageData['counterParty']]].push(newMessageData)
+            }
         }
         return conversation
 
     }
     else {
-        return { nConversation: 0, mapping: {}, }
+        return conversation
     }
-
-
 }
 
 
