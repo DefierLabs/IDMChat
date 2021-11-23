@@ -36,7 +36,7 @@ export default function Chat() {
   if (state.selectedChain !==-1 && state.selectedAddress !=="0x00") {
     var convo = state.conversation[state.conversation['mapping'][state.selectedAddress]]
     try {
-      for (var i = 0; i < convo.length; i++) {
+      for (var i = convo.length - 1; i => 0; i--) {
         chatItems.push(<ChatMessage
           address={convo[i]['counterParty']}
           message={convo[i]['message']}
