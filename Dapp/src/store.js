@@ -22,6 +22,7 @@ import Reducer from './contexts/Reducer'
 const initialState = {
     account: "0x00",
     connected: false,
+    connectedWeb3: false,
     web3: null,
     web3_caller: null,
     conversation: { nConversation: 0, mapping: {}, txs: {} },

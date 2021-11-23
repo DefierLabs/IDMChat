@@ -59,7 +59,7 @@ export default function ChatAddress() {
                   id="outlined-adornment-amount"
                   value={values.amount}
                   onChange={handleChange('amount')}
-                  startAdornment={<InputAdornment position="start">📧</InputAdornment>}
+                  startAdornment={<InputAdornment position="start">📬</InputAdornment>}
                   labelWidth={50}
                   placeholder="Enter an Address"
                 />

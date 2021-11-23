@@ -50,6 +50,11 @@ const Reducer = (state, action) => {
                 ...state,
                 connected: action.payload
             };
+        case 'set_connected_web3':
+            return {
+                ...state,
+                connectedWeb3: action.payload
+            };
         case 'conversation':
             return {
                 ...state,

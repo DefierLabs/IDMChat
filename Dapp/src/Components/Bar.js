@@ -30,6 +30,11 @@ import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SyncIcon from '@material-ui/icons/Sync';
 
+import SearchIcon from '@material-ui/icons/Search';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputAdornment from '@material-ui/core/InputAdornment';
+
+
 import { connect, disconnect, getAccount, getWeb3Caller, getChainID, donate } from "../Utils/Web3Handler"
 
 export default function Bar() {
@@ -43,12 +48,16 @@ export default function Bar() {
     web3.then((value) => { dispatch({ type: 'web3_connected', payload: value }) });
     web3.then((value) => { dispatch({ type: 'web3_caller_connected', payload: value }) });
     dispatch({ type: 'set_connected', payload: true })
+    dispatch({ type: 'set_connected_web3', payload: true })
     checkConnection()
     updateChainId()
   }
 
   const handleDisonnection = () => {
     dispatch({ type: 'web3_disconnected', payload: "" })
+    dispatch({ type: 'set_connected_web3', payload: false })
+
+    
     disconnect()
   }
 
@@ -71,11 +80,23 @@ export default function Bar() {
     donate(state.web3)
   }
 
+  const [values, setValues] = React.useState("");
+
+  const handleChange = (prop) => (event) => {
+    setValues(event.target.value);
+  };
+
+  const handleSearch = (e) => {
+    dispatch({ type: 'set_account', payload: values });
+    dispatch({ type: 'set_connected', payload: true });
+    dispatch({ type: 'set_connected_web3', payload: false })
+  }
+
 
   var connectbutton = []
 
   if (!state.connected) {
-    connectbutton.push(<Button color="inherit" onClick={() => [handleConnection()]}> <AccountBalanceWalletIcon />  Connect To Wallet</Button>)
+    connectbutton.push(<Button color="inherit" onClick={() => [handleConnection()]}> <AccountBalanceWalletIcon />  Connect To Wallet </Button>)
   }
   else if (state.connected && state.account === "0x00") {
     connectbutton.push(<IconButton color="inherit" aria-label="open drawer" onClick={checkConnection}><AccountBalanceWalletIcon /><SyncIcon /></IconButton>)
@@ -90,7 +111,7 @@ export default function Bar() {
 
   return (
     <div className="appBar">
-      <AppBar position="static" className={clsx(classes.appBar)}>
+      <AppBar position="static" className={clsx(classes.appBar)} style={{ spacing: 1 }}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}> IDMChat💬 </Typography>
           <div className={classes.toolbarCenter}>
@@ -100,7 +121,21 @@ export default function Bar() {
             {state.connected && state.account != "0x00" && (
               <Button color="inherit" onClick={() => [handleDonation()]}> Donate to Dev </Button>
             )}
-            {connectbutton}
+{connectbutton}
+            {!state.connected && (<>
+              <OutlinedInput
+                id="outlined-adornment-amount"
+                value={values.amount}
+                onChange={handleChange('amount')}
+                startAdornment={<InputAdornment position="start">📬</InputAdornment>}
+                labelWidth={50}
+                placeholder="View as Address"
+              />
+
+              <Button onClick={() => [handleSearch()]} variant="contained" color="secondary" className={classes.button} > <SearchIcon/> </Button>
+            </>)}
+
+            
           </div>
         </Toolbar>
       </AppBar>
