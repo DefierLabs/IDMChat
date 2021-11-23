@@ -23,9 +23,6 @@ import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
 import ChatMessage from './ChatMessage';
@@ -36,14 +33,10 @@ export default function Chat() {
 
   var chatItems = []
 
-  if (state.selectedChain != -1 && state.selectedAddress != "0x00") {
-
-    console.log(state.conversation)
+  if (state.selectedChain !==-1 && state.selectedAddress !=="0x00") {
     var convo = state.conversation[state.conversation['mapping'][state.selectedAddress]]
     try {
-      for (var i = 0; i < convo.length; i++) {
-        console.log(convo)
-
+      for (var i = convo.length - 1; i => 0; i--) {
         chatItems.push(<ChatMessage
           address={convo[i]['counterParty']}
           message={convo[i]['message']}
@@ -53,6 +46,7 @@ export default function Chat() {
           isSender={convo[i]['isSender']}
           isGroupChat={false}
           txnLink={convo[i]['tx']}
+          chain={convo[i]['chain']}
         />)
         chatItems.push(<Divider variant="inset" component="li" />)
       }
@@ -62,7 +56,7 @@ export default function Chat() {
     }
   }
 
-  if (chatItems.length == 0) {
+  if (chatItems.length ===0) {
     chatItems.push(<Typography
       component="span"
       variant="body2"

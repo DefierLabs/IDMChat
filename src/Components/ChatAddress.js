@@ -20,17 +20,12 @@ import GlobalStyles from './../GlobalStyles';
 import { Context } from './../store'
 
 import Paper from '@material-ui/core/Paper';
-import IconButton from '@material-ui/core/IconButton';
-import SendIcon from '@material-ui/icons/Send';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
-
-import { sendMessage } from "../Utils/Web3Handler"
-
 
 export default function ChatAddress() {
   const [state, dispatch] = useContext(Context);
@@ -44,7 +39,6 @@ export default function ChatAddress() {
 
   const handleMessageSubmission = (e) => {
     dispatch({ type: 'selectedAddress', payload: values });
-    console.log("Submit")
   }
 
   return (
@@ -60,7 +54,7 @@ export default function ChatAddress() {
                   id="outlined-adornment-amount"
                   value={values.amount}
                   onChange={handleChange('amount')}
-                  startAdornment={<InputAdornment position="start">📧</InputAdornment>}
+                  startAdornment={<InputAdornment position="start">📬</InputAdornment>}
                   labelWidth={50}
                   placeholder="Enter an Address"
                 />

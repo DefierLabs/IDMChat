@@ -28,6 +28,11 @@ const Reducer = (state, action) => {
                 ...state,
                 web3_caller: action.payload,
             };
+        case 'set_reload':
+            return {
+                ...state,
+                reload: action.payload,
+            };
         case 'web3_disconnected':
             return {
                 ...state,
@@ -49,6 +54,11 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 connected: action.payload
+            };
+        case 'set_connected_web3':
+            return {
+                ...state,
+                connectedWeb3: action.payload
             };
         case 'conversation':
             return {

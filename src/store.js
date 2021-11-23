@@ -22,13 +22,15 @@ import Reducer from './contexts/Reducer'
 const initialState = {
     account: "0x00",
     connected: false,
+    connectedWeb3: false,
     web3: null,
     web3_caller: null,
-    conversation: {},
+    conversation: { nConversation: 0, mapping: {}, txs: {} ,},
     chainId: 1,
     error: null,
     selectedAddress:"0x00",
-    selectedChain:-1
+    selectedChain:-1,
+    reload: false
 };
 
 const Store = ({children}) => {

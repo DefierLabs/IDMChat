@@ -28,6 +28,10 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
+import Button from '@material-ui/core/Button';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SyncIcon from '@material-ui/icons/Sync';
+
 import ChatsListItem from './ChatsListItem';
 
 import ChainInfo from "../Utils/ChainInfo.js";
@@ -36,24 +40,27 @@ export default function ChatsList() {
   const [state, dispatch] = useContext(Context);
   const classes = GlobalStyles();
 
-  //console.log(JSON.parse(window.localStorage.getItem("conversation")))
+  const handleReload = () => {
+    dispatch({ type: 'set_reload', payload: true })
+  }
 
-
-  console.log(state.conversation)
   var chatList = []
+  if (state.connected) {
+    chatList.push(<ListItem><Button color="inherit" style={{ width: "100%" }} aria-label="open drawer" onClick={handleReload}>Reload Conversations [⚠️BUGGY⚠️]<SyncIcon /></Button></ListItem>)
+  }
   for (var i = 0; i < state.conversation['nConversation']; i++) {
     var image = ""
     var chainName = ""
+
     for (var j = 0; j < ChainInfo['length']; j++) {
-      if (ChainInfo[j]['chainId'] == Number(state.conversation[i][0]['chain']))
-        //console.log(ChainInfo[j])
+      if (ChainInfo[j]['chainId'] === Number(state.conversation[i][0]['chain']))
         image = ChainInfo[j]['Image']
-        chainName = ChainInfo[j]['chain']
+      chainName = ChainInfo[j]['chain']
     }
 
     chatList.push(<><ChatsListItem
       chain={chainName}
-      chainId = {Number(state.conversation[i][0]['chain'])}
+      chainId={Number(state.conversation[i][0]['chain'])}
       imageAddress={image}
       address={state.conversation[i][0]['counterParty']}
       latestMessage={state.conversation[i][0]['message']}
@@ -67,7 +74,7 @@ export default function ChatsList() {
     chatList.push(<><Divider variant="inset" component="li" /></>)
   }
 
-  if (chatList.length == 0) {
+  if (chatList.length === 0) {
     chatList.push(<Typography
       component="span"
       variant="body2"

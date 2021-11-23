@@ -20,7 +20,6 @@ import ChatsList from '../Components/ChatsList.js';
 import ChatAddress from '../Components/ChatAddress.js';
 import Chat from '../Components/Chat.js';
 import ChatInput from '../Components/ChatInput.js';
-import ChatPlaceholder from '../Components/ChatPlaceholder.js';
 import ChatHeader from '../Components/ChatHeader.js';
 import Grid from '@material-ui/core/Grid';
 
@@ -29,12 +28,6 @@ import GlobalStyles from '../GlobalStyles';
 export default function ChatPage() {
   const classes = GlobalStyles();
   var showPlaceholder = false
-
-  var chatArea = [<Chat />]
-
-  if (showPlaceholder) {
-    chatArea = [<ChatPlaceholder />]
-  }
 
   return (
     <div className="Chat">
@@ -59,7 +52,7 @@ export default function ChatPage() {
           <ChatHeader/>
             </Grid>
             <Grid item xs={12} sm={12} md={12} xl={12}>
-              {chatArea}
+              <Chat />
             </Grid>
             <Grid item xs={12} sm={12} md={12} xl={12}>
               <ChatInput/>

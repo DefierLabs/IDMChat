@@ -43,8 +43,7 @@ export default function ChatInput() {
   };
 
   const handleMessageSubmission = (e) => {
-    console.log("Submit")
-    console.log(values)
+    console.log(state.selectedAddress)
     sendMessage(state.web3, state.selectedAddress, values)
   }
 
