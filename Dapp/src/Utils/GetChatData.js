@@ -21,7 +21,7 @@ import axios from 'axios';
 export async function processConversationData(address, chain, conversation) {
     var Web3 = require('web3');
 
-    if (address !=="0x00") {
+    if (address !="0x00") {
 
         var key = "ckey_618a26bdd9a8408c9cf0ec43379"
         var api_query = "https://api.covalenthq.com/v1/" + chain + "/address/" + address + "/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&no-logs=true&key=" + key
@@ -43,7 +43,7 @@ export async function processConversationData(address, chain, conversation) {
 
         var chainDetails
         for (var i = 0; i < ChainInfo['length']; i++) {
-            if (ChainInfo[i]['chainId'] ===chain) {
+            if (ChainInfo[i]['chainId'] ==chain) {
                 chainDetails = ChainInfo[i]
             }
         }
@@ -81,11 +81,11 @@ export async function processConversationData(address, chain, conversation) {
                 tx: messageData['tx']
             }
 
-            if (messageData['from'] === messageData['to']) {
+            if (messageData['from'] == messageData['to']) {
                 newMessageData['isSelfSend'] = true
                 newMessageData['isSender'] = true
 
-            } else if (messageData['from'] ===address) {
+            } else if (messageData['from'] ==address) {
                 newMessageData['isSender'] = true
                 newMessageData['counterParty'] = messageData['to']
             }
@@ -94,13 +94,13 @@ export async function processConversationData(address, chain, conversation) {
                 newMessageData['counterParty'] = messageData['from']
             }
 
-            if (typeof conversation['mapping'][newMessageData['counterParty']] ==='undefined') {
+            if (typeof conversation['mapping'][newMessageData['counterParty']] =='undefined') {
                 conversation['mapping'][newMessageData['counterParty']] = conversation['nConversation']
                 conversation[conversation['nConversation']] = []
                 conversation['nConversation'] = conversation['nConversation'] + 1
             }
 
-            if (typeof conversation['txs'][newMessageData['tx']] ==='undefined'){
+            if (typeof conversation['txs'][newMessageData['tx']] =='undefined'){
                 conversation['txs'][newMessageData['tx']] = true
                 conversation[conversation['mapping'][newMessageData['counterParty']]].push(newMessageData)
             }

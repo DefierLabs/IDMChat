@@ -22,17 +22,24 @@ import { processConversationData } from "../Utils/GetChatData.js";
 
 export default function ConversationLoader() {
   const [state, dispatch] = useContext(Context);
-  const [hasData, setHasData] = React.useState([false, false, false, false, false])
+  const [hasData, setHasData] = React.useState([false, false, false, false, false, false])
   const [lastAccount, setLastAccount] = React.useState("0x00")
   var chains = [1, 56, 137, 250, 42161, 43114]
-  if(state.account !=="0x00" || lastAccount !==state.account){
+
+  if(lastAccount !== state.account){
+    dispatch({ type: 'conversation', payload: { nConversation: 0, mapping: {}, txs: {} , } })
+    setHasData([false, false, false, false, false, false]);
+    setLastAccount(state.account);
+  }
+  if(state.account !=="0x00"){
     for(var i=0; i<hasData.length; i++){
-      if(hasData[i] ===false){
+      if(hasData[i] === false){
         var newHasData = hasData
         newHasData[i] = true
-        processConversationData(state.account, chains[i], state.conversation).then((value) => { dispatch({ type: 'conversation', payload: value }); setLastAccount(state.account); setHasData(newHasData);});
+        processConversationData(state.account, chains[i], state.conversation).then((value) => { dispatch({ type: 'conversation', payload: value });  setHasData(newHasData);});
       }
     }
+    console.log(state.conversation)
   }
   else{
   }
