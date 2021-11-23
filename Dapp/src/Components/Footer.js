@@ -32,7 +32,7 @@ export default function Footer() {
       <Paper className={classes.headerPaper}>
         <Divider color="inherit"/>
         <Card className={classes.cardWithoutBg}>
-          <Typography align="center"> This is a public good, if you find it useful, please donate to 0xe0a09b49721FBD8B23c67a3a9fdE44be4412B8fD</Typography>
+          <Typography align="center"> This is a public good. Please report all bugs to the <Link href="https://github.com/DefierLabs/IDMChat">Github</Link>. if you find it useful, please donate to 0xe0a09b49721FBD8B23c67a3a9fdE44be4412B8fD</Typography>
           <Typography align="center"> Buidl With ❤️ by <Link href="https://github.com/defierlabs">😈</Link> for <Link href="https://showcase.ethglobal.com/web3jam/idmchat">🕸3️⃣🍯🍓</Link></Typography>
         </Card>
       </Paper>

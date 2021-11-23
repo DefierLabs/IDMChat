@@ -46,7 +46,7 @@ export default function ChatsList() {
 
   var chatList = []
   if (state.connected) {
-    chatList.push(<ListItem><Button color="inherit" style={{ width: "100%" }} aria-label="open drawer" onClick={handleReload}>Reload Conversations<SyncIcon /></Button></ListItem>)
+    chatList.push(<ListItem><Button color="inherit" style={{ width: "100%" }} aria-label="open drawer" onClick={handleReload}>Reload Conversations [⚠️BUGGY⚠️]<SyncIcon /></Button></ListItem>)
   }
   for (var i = 0; i < state.conversation['nConversation']; i++) {
     var image = ""
