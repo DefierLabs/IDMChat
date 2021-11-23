@@ -33,7 +33,7 @@ export default function Chat() {
 
   var chatItems = []
 
-  if (state.selectedChain != -1 && state.selectedAddress != "0x00") {
+  if (state.selectedChain !==-1 && state.selectedAddress !=="0x00") {
     var convo = state.conversation[state.conversation['mapping'][state.selectedAddress]]
     try {
       for (var i = 0; i < convo.length; i++) {
@@ -56,7 +56,7 @@ export default function Chat() {
     }
   }
 
-  if (chatItems.length == 0) {
+  if (chatItems.length ===0) {
     chatItems.push(<Typography
       component="span"
       variant="body2"

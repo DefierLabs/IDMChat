@@ -41,7 +41,7 @@ export default function ChatsList() {
     var image = ""
     var chainName = ""
     for (var j = 0; j < ChainInfo['length']; j++) {
-      if (ChainInfo[j]['chainId'] == Number(state.conversation[i][0]['chain']))
+      if (ChainInfo[j]['chainId'] ===Number(state.conversation[i][0]['chain']))
         image = ChainInfo[j]['Image']
         chainName = ChainInfo[j]['chain']
     }
@@ -62,7 +62,7 @@ export default function ChatsList() {
     chatList.push(<><Divider variant="inset" component="li" /></>)
   }
 
-  if (chatList.length == 0) {
+  if (chatList.length ===0) {
     chatList.push(<Typography
       component="span"
       variant="body2"

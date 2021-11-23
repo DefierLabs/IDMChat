@@ -32,7 +32,7 @@ export default function ChatsListItem(props) {
   const classes = GlobalStyles();
 
   var address = props.address
-  if(address.length == 1 ){
+  if(address.length ===1 ){
     address = props.address[0]
   }
 
