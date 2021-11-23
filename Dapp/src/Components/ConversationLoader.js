@@ -24,7 +24,7 @@ export default function ConversationLoader() {
   const [state, dispatch] = useContext(Context);
   const [hasData, setHasData] = React.useState([false, false, false, false, false])
   const [lastAccount, setLastAccount] = React.useState("0x00")
-  var chains = [1, 137, 56, 42161, 250, 43114]
+  var chains = [1, 56, 137, 250, 42161, 43114]
   if(state.account !=="0x00" || lastAccount !==state.account){
     for(var i=0; i<hasData.length; i++){
       if(hasData[i] ===false){
