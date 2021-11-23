@@ -24,13 +24,23 @@ export default function ConversationLoader() {
   const [state, dispatch] = useContext(Context);
   const [hasData, setHasData] = React.useState([false, false, false, false, false, false])
   const [lastAccount, setLastAccount] = React.useState("0x00")
+  const [reloading, setReloading] = React.useState(false)
   var chains = [1, 56, 137, 250, 42161, 43114]
 
   if(lastAccount !== state.account){
     dispatch({ type: 'conversation', payload: { nConversation: 0, mapping: {}, txs: {} , } })
     setHasData([false, false, false, false, false, false]);
     setLastAccount(state.account);
+    setReloading(false)
   }
+
+  if( state.reload === true && reloading === false){
+    setReloading(true)
+    console.log("reload")
+    dispatch({ type: 'set_reload', payload: false })
+    setLastAccount("0x00");
+  }
+
   if(state.account !=="0x00"){
     for(var i=0; i<hasData.length; i++){
       if(hasData[i] === false){
@@ -39,10 +49,8 @@ export default function ConversationLoader() {
         processConversationData(state.account, chains[i], state.conversation).then((value) => { dispatch({ type: 'conversation', payload: value });  setHasData(newHasData);});
       }
     }
-    console.log(state.conversation)
   }
-  else{
-  }
+  else{}
 
   const classes = GlobalStyles();
   

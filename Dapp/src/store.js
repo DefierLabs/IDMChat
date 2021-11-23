@@ -29,7 +29,8 @@ const initialState = {
     chainId: 1,
     error: null,
     selectedAddress:"0x00",
-    selectedChain:-1
+    selectedChain:-1,
+    reload: false
 };
 
 const Store = ({children}) => {
