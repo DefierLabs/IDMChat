@@ -18,6 +18,14 @@ All of the data handling happens on the fly, with no backend server functionalit
 
 I had intended to add a group chat feature, which would have utilised a smart contract factory and data that would point to 'participants' in the conversation. The intention would be for users to be able to send an idm to the smart contract, and the ui would react by creating a group chat chain and informing all the users of the group chat messages.
 
+## Contributing
+
+Feel free to contribute improvements to the UX, performance or anything else you think the dApp needs. I'll test and merge all good, working requests!
+
+## Donating
+
+Feel free to donate to 0xe0a09b49721FBD8B23c67a3a9fdE44be4412B8fD if you find this work helpful or want to support it's future development
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
